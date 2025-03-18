@@ -51,7 +51,7 @@ ul {
 }
 
 .container {
-    max-width: 1100px; /* Larghezza massima */
+    min-width: 480px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 1rem;
@@ -110,10 +110,6 @@ ul {
 
 
 /* ************ HEADER ************** */
-#page-header .container {
-  max-width: 480px;
-}
-
 #page-header h1 {
   font-family: "Nerko One", cursive;
   font-weight: 400;
@@ -126,8 +122,6 @@ ul {
 
 /* ************ MAIN ************** */
 #content-main .container {
-  max-width: 480px;
-
   padding-top: var(--padding-top-20);
   padding-bottom: var(--padding-bottom-20);
 
@@ -137,6 +131,10 @@ ul {
 /* ************ MAIN - CATEGORIES ************** */
 #categories h2 {
 color: #4E3969;
+}
+
+#categories h2 .hidden {
+  display: none;
 }
 
 #categories h2,
@@ -152,7 +150,7 @@ color: #4E3969;
 
 #categories p,
 #info li {
-  padding-bottom: var(--padding-bottom-10)
+  padding-bottom: var(--padding-bottom-20)
 }
 
 /* ************ MAIN - INFO ************** */
@@ -214,15 +212,15 @@ color: #4E3969;
   color: red;
 }
 
-/* ************ MAIN - PRESENTATION ************** */
-#advertising .advertising-img {
+/* ************ MAIN - ADVERTISING ************** */
+#advertising .hidden {
   display: none;
 }
 
 
 /* ************ MAIN - PRESENTATION ************** */
 #presentation h2 {
-  font-weight: 100
+  font-weight: 100;
 }
 
 #presentation .only-border {
@@ -241,7 +239,7 @@ color: #4E3969;
 #presentation .presentation-img {
   height: auto;
   width: 300px;
- 
+
   margin-top: var(--margin-top-20);
   margin-bottom: var(--margin-bottom-20);
 }
@@ -265,11 +263,10 @@ color: #4E3969;
 }
 
 #page-footer .container {
-  max-width: 480px;
+  min-width: 480px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
 }
 
 #page-footer .company-name {
@@ -279,18 +276,158 @@ color: #4E3969;
 #page-footer .company-name,
 #page-footer .company-address, 
 #page-footer .footer-links {
-  padding-top: var(--padding-top-20);
+  padding-bottom: var(--padding-bottom-20);
+}
+
+#page-footer .footer-links ul {
+  padding-bottom: var(--padding-bottom-20); 
 }
 
 #page-footer .footer-links li {
   display: inline-block;
 
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
   padding-top: 10px;
 }
 
 #page-footer .footer-links a {
 color: white;
 text-decoration: underline;
+}
+
+/* ********* TABLET ********* */
+
+@media screen and (min-width: 768px) {
+  #content-main .container {
+    min-width: 768px; /* Larghezza minima */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+
+/* header */
+#page-header h1 {
+  text-align: left;
+  font-size: 3rem;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+ /* categories */
+#categories h2 {
+  font-size: 2rem;
+}
+
+#categories h2 .hidden {
+  display: inline-block;
+}
+
+/* info */
+
+#info .info-recipe ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+
+#info .info-recipe li {
+  font-size: 16px;
+  padding-right: 5px;
+
+  width: 13.5rem
+}
+
+/* social */
+#social i {
+  border: 1px solid white;
+  box-shadow: var(--box-shadow);
+  background-color: white;
+  padding: 0.5rem 3.5rem;
+  border-radius: 20px;
+}
+
+/* advertising  */
+#advertising .hidden {
+  display:inline-block;
+  margin-bottom: var(--margin-bottom-20);
+}
+
+/* presentation */
+#presentation .presentation-content .presentation-img,
+#presentation .presentation-content .presentation-paragraph {
+  margin-top: 30px;
+}
+
+#presentation .presentation-content {
+  display: inline-block;
+}
+
+#presentation .presentation-img {
+  float: left;
+  margin-right: 10px;
+
+  margin-bottom: 0;
+}
+
+#presentation .clerfix::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+}
+
+/* ********* DESKTOP ********* */
+@media screen and (min-width: 992px) {
+  #content-main .container {
+    min-width: 992px; /* Larghezza minima */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+/* info */
+#info .flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#info h4 {
+  padding-top: var(--padding-top-20);
+}
+
+#info .info-recipe li {
+  font-size: 16px;
+  width: auto;
+}
+
+#info .info-recipe ul {
+  display: inline-block;
+}
+
+/* social */
+#social .hidden {
+  display: inline-block;
+  padding-left: 5px;
+
+  color: black;
+}
+
+/* footer */
+#page-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  text-align: left;
+
+  padding-top: var(--padding-top-20);
+  padding-left: 20px;
+  padding-right: 20px;
+}
 }
